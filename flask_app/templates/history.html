@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Prediction History</title>
+
+<style>
+
+body{
+    background:#081229;
+    color:white;
+    font-family:Arial;
+}
+
+.title{
+    text-align:center;
+    margin-top:30px;
+}
+
+.history-container{
+    width:90%;
+    margin:auto;
+}
+
+.history-card{
+    background:#1f2744;
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+}
+
+.history-image{
+    width:250px;
+    border-radius:10px;
+}
+
+.download-btn{
+    background:#2563eb;
+    color:white;
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 class="title">
+Prediction History
+</h1>
+
+<div class="history-container">
+
+{% for record in records %}
+
+<div class="history-card">
+
+<h2>Prediction Record</h2>
+
+<p>
+<b>Date:</b>
+{{ record[0] }}
+</p>
+
+<p>
+<b>Dice Score:</b>
+{{ record[1] }}
+</p>
+
+<p>
+<b>IoU Score:</b>
+{{ record[2] }}
+</p>
+
+<img
+src="{{ record[3] }}"
+class="history-image"
+>
+
+<br><br>
+
+<a
+href="{{ record[3] }}"
+download
+class="download-btn"
+>
+Download Prediction
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

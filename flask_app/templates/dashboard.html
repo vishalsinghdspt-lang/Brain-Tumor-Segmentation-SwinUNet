@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+🧠 Brain Tumor AI
+</div>
+
+<div class="nav-links">
+
+<a href="/">Home</a>
+
+<a href="/dashboard">Dashboard</a>
+
+<a href="/upload">Upload MRI</a>
+
+<a href="/history">History</a>
+
+<a href="/about">About</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<h1>Model Dashboard</h1>
+
+<p>
+Performance metrics and training results of the
+Swin-UNet brain tumor segmentation model.
+</p>
+
+</section>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:20px;">
+
+<div class="card" style="width:220px;text-align:center;">
+<h2>Dice Score</h2>
+<h1>0.415</h1>
+</div>
+
+<div class="card" style="width:220px;text-align:center;">
+<h2>IoU Score</h2>
+<h1>0.218</h1>
+</div>
+
+<div class="card" style="width:220px;text-align:center;">
+<h2>Train Loss</h2>
+<h1>12.46</h1>
+</div>
+
+<div class="card" style="width:220px;text-align:center;">
+<h2>Val Loss</h2>
+<h1>10.81</h1>
+</div>
+
+</div>
+
+<div style="max-width:1200px;margin:auto;padding:30px;">
+
+<div class="card">
+
+<h2>Training Loss Curve</h2>
+
+<img
+src="/static/images/loss_curve.png"
+style="width:100%;border-radius:15px;">
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Validation Loss Curve</h2>
+
+<img
+src="/static/images/validation_curve.png"
+style="width:100%;border-radius:15px;">
+
+</div>
+
+<br>
+
+<div class="card glow">
+
+    <h2>
+        🧠 Model Information
+    </h2>
+
+    <br>
+
+    <p>
+
+        <b>Model:</b>
+        Swin‑UNet
+
+        <br><br>
+
+        <b>Dataset:</b>
+        BraTS 2021
+
+        <br><br>
+
+        <b>Framework:</b>
+        PyTorch
+
+        <br><br>
+
+        <b>Optimizer:</b>
+        AdamW
+
+        <br><br>
+
+        <b>Loss Function:</b>
+        Dice Loss + Cross Entropy Loss
+
+        <br><br>
+
+        <b>Backend:</b>
+        Flask
+
+        <br><br>
+
+        <b>Prediction Support:</b>
+        CPU Inference
+
+        <br><br>
+
+        <b>Evaluation Metrics:</b>
+        Dice Score, IoU Score
+
+    </p>
+
+</div>
+
+</div>
+
+<br><br>
+
+<div class="card glow">
+
+    <h2>
+        🔬 Model Comparison
+    </h2>
+
+    <br>
+
+    <table style="width:100%;color:white;font-size:20px;">
+
+        <tr>
+            <th style="text-align:left;">Model</th>
+            <th style="text-align:left;">Dice Score</th>
+        </tr>
+
+        <tr>
+            <td>U-Net</td>
+            <td>0.389</td>
+        </tr>
+
+        <tr>
+            <td>Swin-UNet</td>
+            <td>0.415</td>
+        </tr>
+
+        <tr>
+            <td><b>Improvement</b></td>
+            <td><b>+6.68%</b></td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

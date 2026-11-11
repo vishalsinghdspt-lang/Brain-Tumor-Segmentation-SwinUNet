@@ -1,0 +1,16 @@
+numpy
+pandas
+matplotlib
+opencv-python
+nibabel
+scikit-image
+scikit-learn
+tqdm
+flask
+torch
+torchvision
+torchaudio
+monai
+tensorboard
+albumentations
+gunicorn

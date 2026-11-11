@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload MRI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        🧠 Brain Tumor AI
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/upload">Upload MRI</a>
+        <a href="/history">History</a>
+        <a href="/about">About</a>
+    </div>
+
+</nav>
+
+<section
+style="
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:85vh;
+padding:40px;
+">
+
+    <div class="card glow"
+    style="
+    width:100%;
+    max-width:900px;
+    ">
+
+        <h1 style="text-align:center;margin-bottom:15px;">
+            Upload MRI Scan
+        </h1>
+
+        <p
+        style="
+        text-align:center;
+        color:#cbd5e1;
+        margin-bottom:40px;
+        ">
+            Upload all four MRI modalities required for
+            Swin‑UNet brain tumor segmentation
+        </p>
+
+        <form action="/upload"
+              method="post"
+              enctype="multipart/form-data">
+
+            <div class="upload-grid">
+
+                <label class="upload-box">
+
+                    <div class="upload-icon">📁</div>
+
+                    <div class="upload-title">
+                        FLAIR MRI
+                    </div>
+
+                    <div id="flair-name" class="upload-subtitle">
+                        Select .nii or .nii.gz file
+                    </div>
+
+                    <input
+                        type="file"
+                        name="flair"
+                        required
+                        onchange="
+                            document.getElementById('flair-name').innerHTML='✅ '+this.files[0].name
+                        ">
+
+                </label>
+
+                <label class="upload-box">
+
+                    <div class="upload-icon">🧠</div>
+
+                    <div class="upload-title">
+                        T1 MRI
+                    </div>
+
+                    <div id="t1-name" class="upload-subtitle">
+                        Select .nii or .nii.gz file
+                    </div>
+
+                    <input
+                        type="file"
+                        name="t1"
+                        required
+                        onchange="
+                            document.getElementById('t1-name').innerHTML='✅ '+this.files[0].name
+                        ">
+
+                </label>
+
+                <label class="upload-box">
+
+                    <div class="upload-icon">⚡</div>
+
+                    <div class="upload-title">
+                        T1ce MRI
+                    </div>
+
+                    <div id="t1ce-name" class="upload-subtitle">
+                        Select .nii or .nii.gz file
+                    </div>
+
+                    <input
+                        type="file"
+                        name="t1ce"
+                        required
+                        onchange="
+                            document.getElementById('t1ce-name').innerHTML='✅ '+this.files[0].name
+                        ">
+
+                </label>
+
+                <label class="upload-box">
+
+                    <div class="upload-icon">🔬</div>
+
+                    <div class="upload-title">
+                        T2 MRI
+                    </div>
+
+                    <div id="t2-name" class="upload-subtitle">
+                        Select .nii or .nii.gz file
+                    </div>
+
+                    <input
+                        type="file"
+                        name="t2"
+                        required
+                        onchange="
+                            document.getElementById('t2-name').innerHTML='✅ '+this.files[0].name
+                        ">
+
+                </label>
+
+                <label class="upload-box">
+
+                    <div class="upload-icon">🎯</div>
+
+                    <div class="upload-title">
+                        Ground Truth (SEG)
+                    </div>
+
+                    <div id="seg-name" class="upload-subtitle">
+                        Select segmentation .nii or .nii.gz file
+                    </div>
+
+                    <input
+                        type="file"
+                        name="seg"
+                        required
+                        onchange="
+                            document.getElementById('seg-name').innerHTML='✅ '+this.files[0].name
+                        ">
+
+                </label>
+
+            </div>
+
+            <div style="text-align:center;margin-top:35px;">
+
+                <button
+                    id="analyzeBtn"
+                    type="submit"
+                    class="btn primary"
+                    style="
+                    border:none;
+                    cursor:pointer;
+                    font-size:18px;
+                    padding:18px 40px;
+                    ">
+                    🚀 Analyze MRI
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<script>
+
+document.querySelector("form").addEventListener("submit", function() {
+
+    const btn = document.getElementById("analyzeBtn");
+
+    btn.innerHTML = "⏳ Uploading & Analyzing MRI...";
+
+    btn.disabled = true;
+
+});
+
+</script>
+
+</body>
+
+</html>
