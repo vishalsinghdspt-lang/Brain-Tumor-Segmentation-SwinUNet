@@ -21,7 +21,7 @@ project_root = os.path.abspath(
 sys.path.append(project_root)
 
 from models.swin_unet import build_model
-from predict_mri import predict_mri
+from flask_app.predict_mri import predict_mri
 
 from database import (
     init_db,
