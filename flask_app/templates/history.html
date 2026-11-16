@@ -18,6 +18,28 @@ body{
     margin-top:30px;
 }
 
+.clear-history-container{
+    width:90%;
+    margin:auto;
+    text-align:right;
+    margin-top:20px;
+}
+
+.clear-btn{
+    background:#dc3545;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.clear-btn:hover{
+    background:#b02a37;
+}
+
 .history-container{
     width:90%;
     margin:auto;
@@ -52,6 +74,25 @@ body{
 <h1 class="title">
 Prediction History
 </h1>
+
+<div class="clear-history-container">
+
+    <form
+        action="{{ url_for('clear_history') }}"
+        method="POST"
+        onsubmit="return confirm('Delete all prediction history?')"
+    >
+
+        <button
+            type="submit"
+            class="clear-btn"
+        >
+            🗑 Clear All History
+        </button>
+
+    </form>
+
+</div>
 
 <div class="history-container">
 

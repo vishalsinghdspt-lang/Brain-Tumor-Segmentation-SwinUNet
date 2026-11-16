@@ -105,5 +105,21 @@ def get_predictions():
 
     return records
 
+def clear_predictions():
+
+    conn = sqlite3.connect(
+        "history.db"
+    )
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM predictions"
+    )
+
+    conn.commit()
+
+    conn.close()
+
 
     

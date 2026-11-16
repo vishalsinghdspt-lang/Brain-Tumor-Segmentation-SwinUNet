@@ -7,6 +7,8 @@ from datetime import datetime
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
+from flask import url_for
 
 # allow access to project modules
 project_root = os.path.abspath(
@@ -24,7 +26,8 @@ from predict_mri import predict_mri
 from database import (
     init_db,
     save_prediction,
-    get_predictions
+    get_predictions,
+    clear_predictions
 )
 
 app = Flask(__name__)
@@ -84,6 +87,18 @@ def history():
     return render_template(
         "history.html",
         records=records
+    )
+
+@app.route(
+    "/clear_history",
+    methods=["POST"]
+)
+def clear_history():
+
+    clear_predictions()
+
+    return redirect(
+        url_for("history")
     )
 
 
